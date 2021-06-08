@@ -6,6 +6,7 @@ const path = require('path')
 const dotenv = require('dotenv')
 const connectDB = require('./config/DB')
 const shoppingRoutes = require('./routes/shoppingList')
+const userRoutes = require("./routes/auth");
 mongoose.Promise = global.Promise;
 
 dotenv.config({path: './config/config.env'})
@@ -22,7 +23,8 @@ if (process.env.NODE_ENV === "development") {
     app.use(morgan('dev'));
 }
 
-app.use('/', shoppingRoutes )
+app.use("/user", userRoutes);
+app.use('/', shoppingRoutes );
 
 const PORT = process.env.PORT || 5005
 app.listen(

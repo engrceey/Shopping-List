@@ -10,12 +10,16 @@
   "author": "zurum",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-validator": "^6.11.1",
+    "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.9",
     "mongoose": "^5.12.13",
+    "mongoose-validator": "^2.1.0",
     "morgan": "^1.10.0"
   }
 }

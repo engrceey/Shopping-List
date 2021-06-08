@@ -11,6 +11,11 @@ const ListSchema = new mongoose.Schema ({
         required: true
     },
 
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    },
+
     description: String,
     price: Number,
 
