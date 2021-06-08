@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const User = require("../models/User");
 const { check, validationResult} = require("express-validator");
 const bcrypt = require("bcryptjs");
+const Auth = require('../middleware/auth')
 
 
 router.post('/login',
@@ -97,6 +98,16 @@ router.post('/signup',
 
 )
 
+
+router.get("/me", Auth, async (req, res) => {
+    try {
+      // request.user is getting fetched from Middleware after token authentication
+      const user = await User.findById(req.user.id);
+      res.json(user);
+    } catch (e) {
+      res.send({ message: "Error in Fetching user" });
+    }
+  });
 
 
 module.exports = router;
